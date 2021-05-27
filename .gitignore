@@ -8,8 +8,9 @@
 *.ctxt
 
 # InteliJ files
-/.idea/
+*/.idea/*
 *.iml
+.idea
 
 # Default ignored files
 /shelf/
