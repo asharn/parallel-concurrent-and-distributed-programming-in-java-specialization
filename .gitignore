@@ -7,13 +7,18 @@
 # BlueJ files
 *.ctxt
 
-# InteliJ files
+### IntelliJ IDEA ###
 */.idea/*
-*.iml
 .idea
+*.iws
+*.iml
+*.ipr
 
 # Default ignored files
 /target/
+*/target/**
+**/META-INF/
+!.mvn/wrapper/maven-wrapper.jar
 /shelf/
 /workspace.xml
 
