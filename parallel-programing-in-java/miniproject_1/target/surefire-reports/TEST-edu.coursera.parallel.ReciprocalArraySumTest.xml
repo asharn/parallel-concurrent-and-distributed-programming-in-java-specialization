@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.coursera.parallel.ReciprocalArraySumTest" time="60.201" tests="4" errors="0" skipped="0" failures="4">
+  <properties>
+    <property name="idea.version" value="2021.1.1"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.11+9-LTS"/>
+    <property name="sun.boot.library.path" value="C:\external-software\java-11-openjdk-11.0.11.9-1.windows.redhat.x86_64\bin"/>
+    <property name="maven.wagon.http.ssl.insecure" value="true"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\external-software\git-repositories\parallel-concurrent-and-distributed-programming-in-java-specialization\parallel-programing-in-java\miniproject_1"/>
+    <property name="java.vm.vendor" value="Red Hat, Inc."/>
+    <property name="java.vendor.url" value="https://access.redhat.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\external-software\git-repositories\parallel-concurrent-and-distributed-programming-in-java-specialization\parallel-programing-in-java\miniproject_1"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="11.0.11+9-LTS"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\karnashi\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\external-software\IntelliJ IDEA 2021.1.1\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\external-software\IntelliJ IDEA 2021.1.1\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\external-software\java-11-openjdk-11.0.11.9-1.windows.redhat.x86_64\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Sennheiser\SoftphoneSDK\;C:\Users\karnashi\AppData\Local\Microsoft\WindowsApps;C:\external-software\Git\cmd;C:\external-software\apache-maven-3.8.1\bin;C:\external-software\java-1.8.0-openjdk-1.8.0.292-2.b10.dev.redhat.windows.x86_64\bin;C:\external-software\java-1.8.0-openjdk-1.8.0.292-2.b10.dev.redhat.windows.x86_64;C:\external-software\node-v14.17.0-win-x64;C:\external-software\mysql\mysql-5.7.17-winx64\bin;C:\external-software\mysql\mysql-5.7.17-winx64;;."/>
+    <property name="maven.conf" value="C:\external-software\IntelliJ IDEA 2021.1.1\plugins\maven\lib\maven3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="maven.wagon.http.ssl.allowall" value="true"/>
+    <property name="user.home" value="C:\Users\karnashi"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="user.name" value="karnashi"/>
+    <property name="java.class.path" value="C:\external-software\IntelliJ IDEA 2021.1.1\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\external-software\IntelliJ IDEA 2021.1.1\plugins\maven\lib\maven3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.1.1 clean install -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.insecure=true"/>
+    <property name="java.home" value="C:\external-software\java-11-openjdk-11.0.11.9-1.windows.redhat.x86_64"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.11"/>
+    <property name="java.vendor" value="Red Hat, Inc."/>
+    <property name="maven.home" value="C:\external-software\IntelliJ IDEA 2021.1.1\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-04-20"/>
+    <property name="java.vendor.url.bug" value="https://bugzilla.redhat.com/enter_bug.cgi"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="testParSimpleTwoMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="0.3">
+    <failure message="It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.500000x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.500000x speedup
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at edu.coursera.parallel.ReciprocalArraySumTest.testParSimpleTwoMillion(ReciprocalArraySumTest.java:120)
+</failure>
+  </testcase>
+  <testcase name="testParSimpleTwoHundredMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="30.162">
+    <failure message="It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.982684x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.982684x speedup
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at edu.coursera.parallel.ReciprocalArraySumTest.testParSimpleTwoHundredMillion(ReciprocalArraySumTest.java:131)
+</failure>
+  </testcase>
+  <testcase name="testParManyTaskTwoHundredMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="29.453">
+    <failure message="It was expected that the many-task parallel implementation would run at least 6.400000x faster, but it only achieved 0.969163x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the many-task parallel implementation would run at least 6.400000x faster, but it only achieved 0.969163x speedup
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at edu.coursera.parallel.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:155)
+</failure>
+  </testcase>
+  <testcase name="testParManyTaskTwoMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="0.286">
+    <failure message="It was expected that the many-task parallel implementation would run at least 4.800000x faster, but it only achieved 1.000000x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the many-task parallel implementation would run at least 4.800000x faster, but it only achieved 1.000000x speedup
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at edu.coursera.parallel.ReciprocalArraySumTest.testParManyTaskTwoMillion(ReciprocalArraySumTest.java:143)
+</failure>
+  </testcase>
+</testsuite>
