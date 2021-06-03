@@ -106,13 +106,11 @@ public final class StudentAnalytics {
         return Arrays.stream(studentArray)
                 .parallel()
                 .filter(x -> !x.checkIsCurrent())
-                .collect(Collectors.groupingBy(Student::getFirstName,
-                        TreeMap::new, Collectors.counting()))
+                .collect(Collectors.groupingBy(Student::getFirstName, Collectors.counting()))
                 .entrySet()
                 .parallelStream()
-                .max((Map.Entry.comparingByValue()))
-                .get()
-                .getKey();
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey).orElse(null);
     }
 
     /**
