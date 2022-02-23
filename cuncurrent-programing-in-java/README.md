@@ -1,4 +1,4 @@
-# cuncurrent programing-java
+# Cuncurrent Programing Java
 This repository contains projects submitted as a course for the Cuncurrent Programming in Java Specialization.
 
 
@@ -47,7 +47,7 @@ However, it is also important to remember that the generality and power of unstr
 
 The term “liveness” refers to a progress guarantee. The three progress guarantees that correspond to the absence of the conditions listed above are deadlock freedom, livelock freedom, and starvation freedom. 
 
-Optional Reading: 
+**Optional Reading:** 
 1. [Deadlock example with synchronized methods in Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/deadlock.html) 
 
 2. [Starvation and Livelock examples in Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/starvelive.html)
@@ -64,7 +64,3 @@ First, we examined a solution to this problem using structured locks, and demons
 1. Wikipedia article on the [Dining Philosophers Problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 
 
-
-### Deadlock
-### Livelock
-### Startvation
