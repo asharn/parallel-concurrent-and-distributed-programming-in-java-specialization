@@ -1,4 +1,4 @@
-# Cuncurrent Programing Java
+# Concurrent Programing Java
 This repository contains projects submitted as a course for the Cuncurrent Programming in Java Specialization.
 
 
@@ -31,6 +31,7 @@ We also learned about ```wait()``` and ```notify()``` operations that can be use
 3. Wikipedia article on [Monitors](https://en.wikipedia.org/wiki/Monitor_(synchronization))
 
 
+
 ## 1.3 Unstructured Locks 
 **Lecture Summary:** In this lecture, we introduced unstructured locks (which can be obtained in Java by creating instances of  ```ReentrantLock()```), and used three examples to demonstrate their generality relative to structured locks. The first example showed how explicit ```lock()``` and ```unlock()``` operations on unstructured locks can be used to support a hand-over-hand locking pattern that implements a non-nested pairing of lock/unlock operations which cannot be achieved with synchronized statements/methods. The second example showed how the ```tryLock()``` operations in unstructured locks can enable a thread to check the availability of a lock, and thereby acquire it if it is available or do something else if it is not. The third example illustrated the value of read-write locks (which can be obtained in Java by creating instances of ```ReentrantReadWriteLock()```), whereby multiple threads are permitted to acquire a lock ```L``` in “read mode”, ```L.readLock().lock()```, but only one thread is permitted to acquire the lock in “write mode”, ```L.writeLock().lock()```.
 
@@ -55,6 +56,7 @@ The term “liveness” refers to a progress guarantee. The three progress guara
 3. Wikipedia article on [Deadlock and Livelock](https://en.wikipedia.org/wiki/Deadlock)
 
 
+
 ## 1.5 Dining Philosophers Problem 
 **Lecture Summary:** In this lecture, we studied a classical concurrent programming example that is referred to as the Dining Philosophers Problem. In this problem, there are five threads, each of which models a “philosopher” that repeatedly performs a sequence of actions which include think, pick up chopsticks, eat, and put down chopsticks. 
 
@@ -63,4 +65,16 @@ First, we examined a solution to this problem using structured locks, and demons
 **Optional Reading:** 
 1. Wikipedia article on the [Dining Philosophers Problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 
+
+
+
+## 2.1 Critical Sections 
+**Lecture Summary:** In this lecture, we learned how critical sections and the isolated construct can help concurrent threads manage their accesses to shared resources, at a higher level than just using locks. When programming with threads, it is well known that the following situation is defined to be a data race error — when two accesses on the same shared location can potentially execute in parallel, with least one access being a write. However, there are many cases in practice when two tasks may legitimately need to perform concurrent accesses to shared locations, as in the bank transfer example. 
+
+With critical sections, two blocks of code that are marked as isolated, say ```A``` and ```B```, are guaranteed to be executed in mutual exclusion with ```A``` executing before ```B``` or vice versa. With the use of isolated constructs, it is impossible for the bank transfer example to end up in an inconsistent state because all the reads and writes for one isolated section must complete before the start of another isolated construct. Thus, the parallel program will see the effect of one isolated section completely before another isolated section can start.
+
+**Optional Reading:** 
+1. Wikipedia article on [Critical Sections](https://en.wikipedia.org/wiki/Critical_section). 
+
+2. Wikipedia article on [Atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)).
 
