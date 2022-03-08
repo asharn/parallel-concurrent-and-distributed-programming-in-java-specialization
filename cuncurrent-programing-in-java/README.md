@@ -173,11 +173,11 @@ This approach exposes more concurrency than object-based isolation since it allo
 ### Project Goals and Outcomes
 One of the major challenges of writing concurrent applications is the correct protection of data shared by multiple, concurrently executing streams of execution. "Correct" protection of shared data generally has several properties:
 
-	1. A deadlock cannot occur (i.e. progress is guaranteed).
+1. A deadlock cannot occur (i.e. progress is guaranteed).
 
-	2. A data race cannot occur.
+2. A data race cannot occur.
 
-	3. That protection does not cause excessive contention, and hence does not significantly hurt performance.
+3. That protection does not cause excessive contention, and hence does not significantly hurt performance.
 
 One of the concurrent programming concepts you learned about this week that helps to prevent all three of the above issues is object-based isolation. In object-based isolation, the objects being accessed are explicitly passed to the synchronization construct being used. The synchronization construct can then use this information on the specific objects being accessed by the critical section to optimize synchronization and improve safety. This is in contrast to global isolation, where a single global lock or construct ensures safety but might experience heavy contention. Two examples of object-based isolation are the Java synchronized statement and the PCDP object-based isolated API.
 
@@ -201,14 +201,35 @@ Your modifications should be made entirely inside of BankTransactionsUsingObject
 
 Your main goals for this assignment are as follows:
 
-	1. Inside BankTransactionsUsingObjectIsolation.java, implement the issueTransfer method using object-based isolation to protect against concurrent accesses to the source and destination bank accounts.
+1. Inside BankTransactionsUsingObjectIsolation.java, implement the issueTransfer method using object-based isolation to protect against concurrent accesses to the source and destination bank accounts.
 
 There are helpful TODOs in BankTransactionsUsingObjectIsolation.java to help guide your implementation.
 
 ### Project Evaluation
 Your assignment submission should consist of only the BankTransactionsUsingObjectIsolation.java file that you modified to implement this  mini-project. As before, you can upload this file through the assignment page for this mini-project. After that, the Coursera autograder will take over and assess your submission, which includes building your code and running it on one or more tests. Your submission will be evaluated on Coursera’s auto-grading system using 2 and 4 CPU cores. Note that the performance observed for tests on your local machine may differ from that on Coursera's auto-grading system, but that you will only be evaluated on the measured performance on Coursera. Also note that for all assignments in this course you are free to resubmit as many times as you like. See the Common Pitfalls page under Resources for more details. Please give it a few minutes to complete the grading. Once it has completed, you should see a score appear in the “Score” column of the “My submission” tab based on the following rubric:
 
-	1. 50%  - performance of object-based isolation on two cores
+1. 50%  - performance of object-based isolation on two cores
 
-	2. 50%  - performance of object-based isolation on four cores
+2. 50%  - performance of object-based isolation on four cores
+
+
+
+## 3.1 Actor Model 
+**Lecture Summary:** In this lecture, we introduced the Actor Model as an even higher level of concurrency control than locks or isolated sections. One limitation of locks, and even isolated sections, is that, while many threads might correctly control the access to a shared object (e.g., by using object-based isolation) it only takes one thread that accesses the object directly to create subtle and hard-to-discover concurrency errors. The Actor model avoids this problem by forcing all accesses to an object to be isolated by default. The object is part of the local state of an actor, and cannot be accessed directly by any other actor. 
+
+An Actor consists of a Mailbox, a set of Methods, and Local State. The Actor model is reactive, in that actors can only execute methods in response to messages; these methods can read/write local state and/or send messages to other actors. Thus, the only way to modify an object in a pure actor model is to send messages to the actor that owns that object as part of its local state. In general, messages sent to actors from different actors can be arbitrarily reordered in the system. However, in many actor models, messages sent between the same pair of actors preserve the order in which they are sent 
+
+**Optional Reading:** 
+1. Wikipedia article on the [Actor Model](https://en.wikipedia.org/wiki/Actor_model)
+
+2. Documentation on the [Akka Actor Library](http://doc.akka.io/docs/akka/2.5.3/java/guide/index.html) (though Akka is not used in this course, it is a useful library to be aware of if you are interested in using the actor model with Java and Scala applications)
+
+
+## 3.2 Actor Examples 
+**Lecture Summary:** In this lecture, we further studied the Actor Model through two simple examples of using actors to implement well-known concurrent programming patterns. The PrintActor in our first example processes simple String messages by printing them. If an ```EXIT``` message is sent, then the PrintActor completes its current computation and exits. As a reminder, we assume that messages sent between the same pair of actors preserve the order in which they are sent.
+
+In the second example, we created an actor pipeline, in which one actor checks the incoming messages and only forwards the ones that are in lower case. The second actor processes the lowercase messages and only forwards the ones that are of even length. This example illustrates the power of the actor model, as this concurrent system would be much more difficult to implement using threads, for example, since much care would have to be taken on how to implement a shared mailbox for correct and efficient processing by parallel threads. 
+
+**Optional Reading:** 
+1. Wikipedia article on [Pipeline Parallelism](https://en.wikipedia.org/wiki/Pipeline_(computing).
 
