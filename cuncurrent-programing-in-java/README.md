@@ -243,16 +243,21 @@ To implement the Sieve of Eratosthenes, we first create an actor, Non-Mul-2, tha
 A Java code sketch for the ```process()``` method for an actor responsible for filtering out multiples of the actor's "local prime" in the Sieve of Eratosthenes is as follows:
 
 ```
-	public void process(final Object msg) {
-	  int candidate = (Integer) msg;
-	  // Check if the candidate is a non-multiple of the "local prime".
-	  // For example, localPrime = 2 in the Non-Mul-2 actor
-	  boolean nonMul = ((candidate % localPrime) != 0);
-	  // nothing needs to be done if nonMul = false
-	  if (nonMul) {
-	    if (nextActor == null) { 
-	      . . . // create & start new actor with candidate as its local prime
-	    }
+public void process(final Object msg) {
+  int candidate = (Integer) msg;
+  // Check if the candidate is a non-multiple of the "local prime".
+  // For example, localPrime = 2 in the Non-Mul-2 actor
+  boolean nonMul = ((candidate % localPrime) != 0);
+  // nothing needs to be done if nonMul = false
+  if (nonMul) {
+    if (nextActor == null) { 
+      . . . // create & start new actor with candidate as its local prime
+    }
 ```
 **Optional Reading:** 
 1. Wikipedia article on the [Sieve of Eratosthenes problem](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+
+## 3.4 Producer-Consumer Problem with Unbounded Buffer 
+**Lecture Summary:** In this lecture, we studied the producer-consumer pattern in concurrent programming which is used to solve the following classical problem: how can we safely coordinate accesses by multiple producer tasks P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub>, ... and multiple consumer tasks C<sub>1</sub>, C<sub>2</sub>, C<sub>3</sub>, ... to a shared buffer of unbounded size without giving up any concurrency? Part of the reason that this problem can be challenging is that we cannot assume any a priori knowledge about the rate at which different tasks produce and consume items in the buffer. While it is possible to solve this problem by using locks with wait-notify operations or by using object-based isolation, both approaches will require low-level concurrent programming techniques to ensure correctness and maximum performance. Instead, a more elegant solution can be achieved by using actors as follows.
+
+The key idea behind any actor-based solution is to think of all objects involved in the concurrent program as actors, which in this case implies that producer tasks, consumer tasks, and the shared buffer should all be implemented as actors. The next step is to establish the communication protocols among the actors. A producer actor can simply send a message to the buffer actor whenever it has an item to produce. The protocol for consumer actors is a bit more complicated. Our solution requires a consumer actor to send a message to the buffer actor whenever it is ready to process an item. Thus, whenever the buffer actor receives a message from a producer, it knows which consumers are ready to process items and can forward the produced item to any one of them. Thus, with the actor model, all concurrent interactions involving the buffer can be encoded in messages, instead of using locks or isolated statements.
